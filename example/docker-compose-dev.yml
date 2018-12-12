@@ -1,0 +1,8 @@
+version: '2'
+services:
+    app:
+        volumes:
+            - magento2_volume_sync:/var/www/html:nocopy
+volumes:
+    magento2_volume_sync:
+        external: true

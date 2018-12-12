@@ -1,0 +1,8 @@
+version: '2'
+options:
+    max_attempt: 10
+syncs:
+    magento2_volume_sync:
+        src: './app'
+        sync_strategy: 'unison'
+        sync_userid: 33

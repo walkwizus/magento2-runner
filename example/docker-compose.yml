@@ -1,0 +1,35 @@
+version: '2'
+
+volumes:
+    m2_mysql_data:
+        driver: local
+services:
+    app:
+        container_name: 'magento2-container'
+        build: 'walkwizus/magento2-runner'
+        ports:
+            - 80:80
+            - 443:443
+        volumes:
+            - ./vhosts:/etc/apache2/sites-enabled
+        environment:
+            SHELL: /bin/bash
+    database:
+        container_name: magento2-database
+        image: mysql:5.5
+        expose:
+            - 3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_USER: root
+            MYSQL_PASSWORD: root
+            SHELL: /bin/bash
+        volumes:
+            - magento2_mysql_data:/var/lib/mysql:cached
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: magento2-phpmyadmin
+        environment:
+            - PMA_ARBITRARY=1
+        ports:
+            - 8080:80
