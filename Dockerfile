@@ -1,4 +1,4 @@
-FROM php:7.0.23-apache
+FROM php:7.2-apache
 LABEL company="Wakwizus"
 LABEL maintainer="jimmy@walkwizus.fr"
 
