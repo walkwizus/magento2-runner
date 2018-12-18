@@ -22,7 +22,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) json \
     && docker-php-ext-install -j$(nproc) iconv \
-    && docker-php-ext-install -j$(nproc) mcrypt \
     && docker-php-ext-install -j$(nproc) mbstring \
     && docker-php-ext-install -j$(nproc) pcntl \
     && docker-php-ext-install -j$(nproc) soap \
@@ -31,11 +30,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) pdo \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
-    && pecl install redis-3.1.0 \
+    && pecl install redis-4.2.0 \
     && docker-php-ext-enable redis \
     && a2enmod rewrite headers \
-    && pecl install mongodb \
-    && docker-php-ext-enable mongodb \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
