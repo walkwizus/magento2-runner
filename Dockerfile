@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
         libcurl4-openssl-dev \
         pkg-config \
         libssl-dev \
+        libbz2-dev \
     && docker-php-ext-install -j$(nproc) bcmath \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
@@ -31,6 +32,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) intl \
     && docker-php-ext-install -j$(nproc) pdo \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
+    && docker-php-ext-install -j$(nproc) bz2 \
     && pecl install redis-3.1.0 \
     && docker-php-ext-enable redis \
     && a2enmod rewrite headers \
