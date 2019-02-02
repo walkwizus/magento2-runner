@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.1-apache
 LABEL company="Wakwizus"
 LABEL maintainer="jimmy@walkwizus.fr"
 RUN apt-get update && apt-get install -y \
