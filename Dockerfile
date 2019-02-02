@@ -34,6 +34,8 @@ RUN apt-get update && apt-get install -y \
     && pecl install redis-4.2.0 \
     && docker-php-ext-enable redis \
     && a2enmod rewrite headers \
+    && pecl install mcrypt-1.0.1 && \
+    && docker-php-ext-enable mcrypt \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin/ --filename=composer \
