@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
         pkg-config \
         libssl-dev \
         libbz2-dev \
+	libsodium-dev \	
     && docker-php-ext-install -j$(nproc) bcmath \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
@@ -32,6 +33,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
     && docker-php-ext-install -j$(nproc) bz2 \
     && pecl install redis-4.2.0 \
+    && pecl install libsodium-1.0.17 \
     && docker-php-ext-enable redis \
     && a2enmod rewrite headers \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
