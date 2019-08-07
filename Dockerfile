@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
         libxml2-dev \
         libxslt1-dev \
         libicu-dev \
-        mysql-client \
+        mariadb-client \
         xmlstarlet \
         libcurl4-openssl-dev \
         pkg-config \
