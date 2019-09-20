@@ -41,6 +41,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin/ --filename=composer \
     && php -r "unlink('composer-setup.php');" \
     && composer global require hirak/prestissimo
+RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g grunt-cli
 COPY etc/php.ini /usr/local/etc/php/conf.d/00_magento.ini
 COPY etc/apache.conf /etc/apache2/conf-enabled/00_magento.conf
 WORKDIR /var/www/html/
