@@ -32,6 +32,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) pdo \
     && docker-php-ext-install -j$(nproc) pdo_mysql \
     && docker-php-ext-install -j$(nproc) bz2 \
+    && docker-php-ext-install -j$(nproc) sockets \
     && pecl install redis-4.2.0 \
     && pecl install libsodium-2.0.21 \
     && docker-php-ext-enable redis \
